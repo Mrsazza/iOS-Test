@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA360637284736A600AACFDD /* GridImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA360636284736A600AACFDD /* GridImageView.swift */; };
 		FA384FAD284635380032BFF1 /* iOS_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384FAC284635380032BFF1 /* iOS_TestApp.swift */; };
 		FA384FAF284635380032BFF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384FAE284635380032BFF1 /* ContentView.swift */; };
 		FA384FB12846353B0032BFF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA384FB02846353B0032BFF1 /* Assets.xcassets */; };
 		FA384FB42846353B0032BFF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA384FB32846353B0032BFF1 /* Preview Assets.xcassets */; };
+		FA384FBC284635DC0032BFF1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384FBB284635DC0032BFF1 /* HomeView.swift */; };
+		FA384FBE284635F50032BFF1 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384FBD284635F50032BFF1 /* CategoryView.swift */; };
+		FA384FC0284636010032BFF1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384FBF284636010032BFF1 /* SettingsView.swift */; };
+		FA384FC32846A3D80032BFF1 /* GlobalFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384FC22846A3D80032BFF1 /* GlobalFrame.swift */; };
+		FA384FC62846A5A40032BFF1 /* CarouselImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384FC52846A5A40032BFF1 /* CarouselImage.swift */; };
+		FA384FC82846A6A50032BFF1 /* ImageCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA384FC72846A6A40032BFF1 /* ImageCarousel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA360636284736A600AACFDD /* GridImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridImageView.swift; sourceTree = "<group>"; };
 		FA384FA9284635380032BFF1 /* iOS Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA384FAC284635380032BFF1 /* iOS_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_TestApp.swift; sourceTree = "<group>"; };
 		FA384FAE284635380032BFF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA384FB02846353B0032BFF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA384FB32846353B0032BFF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA384FBB284635DC0032BFF1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FA384FBD284635F50032BFF1 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		FA384FBF284636010032BFF1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FA384FC22846A3D80032BFF1 /* GlobalFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFrame.swift; sourceTree = "<group>"; };
+		FA384FC52846A5A40032BFF1 /* CarouselImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselImage.swift; sourceTree = "<group>"; };
+		FA384FC72846A6A40032BFF1 /* ImageCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarousel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +65,9 @@
 		FA384FAB284635380032BFF1 /* iOS Test */ = {
 			isa = PBXGroup;
 			children = (
+				FA384FC42846A5850032BFF1 /* Model */,
+				FA384FC12846A3BD0032BFF1 /* Extension */,
+				FA384FBA284635C70032BFF1 /* View */,
 				FA384FAC284635380032BFF1 /* iOS_TestApp.swift */,
 				FA384FAE284635380032BFF1 /* ContentView.swift */,
 				FA384FB02846353B0032BFF1 /* Assets.xcassets */,
@@ -65,6 +82,42 @@
 				FA384FB32846353B0032BFF1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA384FBA284635C70032BFF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA396E262846B49F00F68A0C /* SubView */,
+				FA384FBB284635DC0032BFF1 /* HomeView.swift */,
+				FA384FBD284635F50032BFF1 /* CategoryView.swift */,
+				FA384FBF284636010032BFF1 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA384FC12846A3BD0032BFF1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FA384FC22846A3D80032BFF1 /* GlobalFrame.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FA384FC42846A5850032BFF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA384FC52846A5A40032BFF1 /* CarouselImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA396E262846B49F00F68A0C /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				FA384FC72846A6A40032BFF1 /* ImageCarousel.swift */,
+				FA360636284736A600AACFDD /* GridImageView.swift */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA384FC32846A3D80032BFF1 /* GlobalFrame.swift in Sources */,
+				FA384FC0284636010032BFF1 /* SettingsView.swift in Sources */,
+				FA384FBC284635DC0032BFF1 /* HomeView.swift in Sources */,
 				FA384FAF284635380032BFF1 /* ContentView.swift in Sources */,
+				FA384FBE284635F50032BFF1 /* CategoryView.swift in Sources */,
+				FA384FC62846A5A40032BFF1 /* CarouselImage.swift in Sources */,
 				FA384FAD284635380032BFF1 /* iOS_TestApp.swift in Sources */,
+				FA360637284736A600AACFDD /* GridImageView.swift in Sources */,
+				FA384FC82846A6A50032BFF1 /* ImageCarousel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
