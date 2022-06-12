@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ImageCarousel: View {
-    let images: [CarouselImage]
+    //let images: [CarouselImage]
+    let images:[ImageObject]
     
     func getScale(proxy: GeometryProxy) -> CGFloat {
         //        guard let rootView = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.rootViewController?.view else { return 1}
@@ -34,17 +35,37 @@ struct ImageCarousel: View {
                     GeometryReader { proxy in
                         let scale = getScale(proxy: proxy)
                         VStack(spacing: 8) {
-                            Image(num.imageName)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 110)
-                                .clipped()
-                                .cornerRadius(8)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color(white: 0.4))
-                                )
-                                .shadow(radius: 3)
+                            
+                            AsyncImage(
+                                url: URL(string: num.url),
+                                content: { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 110)
+                                        .clipped()
+                                        .cornerRadius(8)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .stroke(Color(white: 0.4))
+                                        )
+                                        .shadow(radius: 3)
+                                },
+                                placeholder: {
+                                    ProgressView()
+                                }
+                            )
+                          //  Image(num.imageName)
+//                                .resizable()
+//                                .scaledToFill()
+//                                .frame(width: 110)
+//                                .clipped()
+//                                .cornerRadius(8)
+//                                .overlay(
+//                                    RoundedRectangle(cornerRadius: 8)
+//                                        .stroke(Color(white: 0.4))
+//                                )
+//                                .shadow(radius: 3)
                         }
                         .scaleEffect(.init(width: scale, height: scale))
                         .animation(.easeInOut(duration: 1), value: 1.0)
@@ -61,8 +82,8 @@ struct ImageCarousel: View {
     }
 }
 
-struct ImageCarousel_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageCarousel(images: carousel)
-    }
-}
+//struct ImageCarousel_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ImageCarousel(images: carousel)
+//    }
+//}

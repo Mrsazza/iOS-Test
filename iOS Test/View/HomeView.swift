@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @StateObject var viewModel = ReadViewModel()
+    
     var body: some View {
         ScrollView {
             ZStack{
@@ -33,7 +36,7 @@ struct HomeView: View {
                         .padding()
                     }
                     //.padding(.top,50)
-                    ImageCarousel(images: carousel)
+                    ImageCarousel(images: viewModel.listObject)
                         .padding(.top,-30)
                     ForEach(0..<4, id:\.self){ item in
                         VStack {
@@ -57,7 +60,9 @@ struct HomeView: View {
                 }
             }
         }
-        
+        .onAppear{
+            viewModel.observeListObject()
+        }
         .edgesIgnoringSafeArea(.top)
         .background(Color.black)
     }
