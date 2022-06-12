@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class ImageObject{
     var id: Int = 0
-    var url: String = ""
+    var image: UIImage?
 }
 
 //extension Encodable{

@@ -13,9 +13,15 @@ struct TestView: View {
     var body: some View {
         VStack{
             if !viewModel.listObject.isEmpty{
-                VStack{
+                ScrollView{
                     ForEach(viewModel.listObject, id:\.id ) { item in
-                        AsyncImage(url: URL(string: item.url))
+                        //AsyncImage(url: URL(string: item.url))
+                        if item.image != nil{
+                            Image(uiImage: item.image!)
+                                .resizable()
+                                .scaledToFit()
+                                .frame( height: 320)
+                        }
                     }
                 }
             }

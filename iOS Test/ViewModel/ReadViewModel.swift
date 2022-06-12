@@ -9,9 +9,11 @@ import Foundation
 import FirebaseDatabase
 import FirebaseDatabaseSwift
 import Firebase
+import FirebaseStorage
 
 class ReadViewModel: ObservableObject{
     var ref: DatabaseReference! = Database.database().reference()
+    var storage = Storage.storage()
     @Published var object: ImageObject? = nil
     
     @Published var listObject = [ImageObject]()
@@ -27,14 +29,29 @@ class ReadViewModel: ObservableObject{
                   let id = placeDict["id"] as! Int
                   let url = placeDict["url"] as! String
                   //print(id, url)
-                  self.object = ImageObject()
-                  self.object?.id = id
-                  self.object?.url = url
-                  if self.object != nil {
-                      self.listObject.append(self.object!)
+                  // Create a storage reference from the URL
+                  let storageRef = self.storage.reference(forURL: url)
+                  
+                 
+                  DispatchQueue.global().async {
+                  storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                      if error != nil {
+                          print("Error: Image could not download!")
+                      } else {
+                          
+                              self.object = ImageObject()
+                              self.object?.id = id
+                              let image = UIImage(data: data!)
+                              self.object?.image = image
+                              if self.object != nil {
+                                  self.listObject.append(self.object!)
+                              }
+//                              print(image)
+                      }
                   }
               }
-            print(self.listObject)
+                  print(storageRef)
+              }
           })
     }
 }

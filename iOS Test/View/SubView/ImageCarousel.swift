@@ -36,36 +36,41 @@ struct ImageCarousel: View {
                         let scale = getScale(proxy: proxy)
                         VStack(spacing: 8) {
                             
-                            AsyncImage(
-                                url: URL(string: num.url),
-                                content: { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 110)
-                                        .clipped()
-                                        .cornerRadius(8)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .stroke(Color(white: 0.4))
-                                        )
-                                        .shadow(radius: 3)
-                                },
-                                placeholder: {
-                                    ProgressView()
-                                }
-                            )
-                          //  Image(num.imageName)
-//                                .resizable()
-//                                .scaledToFill()
-//                                .frame(width: 110)
-//                                .clipped()
-//                                .cornerRadius(8)
-//                                .overlay(
-//                                    RoundedRectangle(cornerRadius: 8)
-//                                        .stroke(Color(white: 0.4))
-//                                )
-//                                .shadow(radius: 3)
+//                            AsyncImage(
+//                                url: URL(string: num.url),
+//                                content: { image in
+//                                    image
+//                                        .resizable()
+//                                        .scaledToFill()
+//                                        .frame(width: 110)
+//                                        .clipped()
+//                                        .cornerRadius(8)
+//                                        .overlay(
+//                                            RoundedRectangle(cornerRadius: 8)
+//                                                .stroke(Color(white: 0.4))
+//                                        )
+//                                        .shadow(radius: 3)
+//                                },
+//                                placeholder: {
+//                                    ProgressView()
+//                                }
+//                            )
+                            if num.image != nil{
+                            Image(uiImage: num.image!)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 110)
+                                .clipped()
+                                .cornerRadius(8)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color(white: 0.4))
+                                )
+                                .shadow(radius: 3)
+                            } else{
+                                ProgressView()
+                            }
+                            
                         }
                         .scaleEffect(.init(width: scale, height: scale))
                         .animation(.easeInOut(duration: 1), value: 1.0)
