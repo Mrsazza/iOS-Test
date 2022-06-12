@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject var viewModel = ReadViewModel()
-    
+    @State private var firstLogin = false
     var body: some View {
         ScrollView {
             ZStack{
@@ -61,7 +61,10 @@ struct HomeView: View {
             }
         }
         .onAppear{
-            viewModel.observeListObject()
+            if !firstLogin{
+                viewModel.observeListObject()
+            }
+            firstLogin = true
         }
         .edgesIgnoringSafeArea(.top)
         .background(Color.black)
